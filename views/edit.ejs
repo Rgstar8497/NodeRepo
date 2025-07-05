@@ -1,0 +1,18 @@
+<%-include('./partial/header.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 mt-5 d-inline-block">
+                <h1 class="alert alert-success text-center">Add New Student</h1>
+                <form action="/student/update/<%=data._id%>" method="post">
+                        <input type="text" name="name" value="<%= data.name %>" class="form-control mb-3" placeholder="Enter Student Name" required><br/>
+                    <input type="email" name="email" value="<%= data.email %>" class="form-control mb-3" placeholder="Enter Student Email" required><br/>
+
+                    <input type="submit" class="btn btn-warning" value="Update Student"/>
+                </form>
+                <form action="/student" method="get" class="d-inline-block">
+                               <input class="btn btn-success" value="Back Page"/>
+                           </form>
+            </div>
+        </div>
+    </div>
+    <%-include('./partial/footer.ejs') %>

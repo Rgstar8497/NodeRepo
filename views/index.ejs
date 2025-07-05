@@ -1,0 +1,48 @@
+<%-include('./partial/header.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 mt-5">
+                <h1 class="alert alert-success text-center">Add New Student</h1>
+                <form method="post">
+                    <input type="text" name="name" class="form-control mb-3" placeholder="Enter Student Name" required><br/>
+                    <input type="email" name="email" class="form-control mb-3" placeholder="Enter Student Email" required><br/>
+                    <input type="submit" class="btn btn-primary" value="Add Student"/>
+                </form>
+            </div>
+            <div class="col-sm-6 mt-5">
+                <h1 class="alert alert-success text-center">List of Student</h1>
+                <%#show all data%>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% var i=1 %>
+                        <% data.forEach((item)=>{%>
+
+                       
+                        <tr>
+                            <td><%= i++ %></td>
+                            <td><%= item.name %></td>
+                            <td><%= item.email %></td>
+                            <td>
+                                <form action="/student/edit/<%=item._id%>" method="get" style="display:inline;">
+                                    <input type="submit" class="btn btn-success" value="Edit"/>
+                                </form>
+                                <form action="/student/delete/<%=item._id%>" method="post" style="display:inline;">
+                                    <input type="submit" class="btn btn-danger" value="Delete"/>
+                                </form>
+                            </td>
+                        </tr>
+                         <% })%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%-include('./partial/footer.ejs') %>
