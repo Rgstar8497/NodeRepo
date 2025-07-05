@@ -5,7 +5,7 @@ import webRoutes from './routes/web.js';
 // Connect to MongoDB
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DB_URL = process.env.MONGO_URI || 'mongodb+srv://Rahul:<Rahul>@cluster0.g9rblc0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const DB_URL = process.env.MONGO_URI || 'mongodb+srv://Rahul:Rahul@cluster0.g9rblc0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 connectDB(DB_URL);
 app.use('/student',express.static(join(process.cwd(),'public')));
 app.use('/student/edit',express.static(join(process.cwd(),'public')));
